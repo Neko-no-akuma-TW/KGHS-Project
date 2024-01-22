@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if error %}
+    <title>Login Error</title>
+    {% else %}
+    <title>Login</title>
+    {% endif %}
+</head>
+{% if error %}
+    <h1>{{ error }}</h1>
+{% else %}
+    <h1>Login Successfully</h1>
+    <form action="/selected" method="post">
+        <a>請選擇你的身份</a><select name="identity" id="identity">
+            <option value="buyer">買家</option>
+            <option value="seller">賣家</option>
+        </select>
+        <input type="submit" value="確認">
+    </form>
+{% endif %}
+</body>
+</html>
