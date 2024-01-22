@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buyer Deals Detail</title>
+</head>
+<body>
+<table border>
+    <tr><td>Time</td><td>Nums</td></tr>
+    {% for i in times %}
+        <tr><td>{{ i }}</td><td>{{ prices[times.index(i)] }}</td></tr>
+    {% endfor %}
+</table>
+</body>
+</html>
