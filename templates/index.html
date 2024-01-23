@@ -2,9 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome!</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+      html,body{
+        height:100%;
+        margin:0;
+        padding:0;
+      }
+      .header{
+        position:fixed;
+        top:0;
+        left:0;
+        right:0;
+        display:flex;
+        justify-content:flex-start;
+        align-items:center;
+        padding:10px;
+        background-color:#B3D9D9;
+      }
+      .house-icon{
+        width:30px;
+        height:30px;
+        background-image: url('https://e7.pngegg.com/pngimages/98/702/png-clipart-font-awesome-computer-icons-house-icon-design-house-angle-logo-thumbnail.png');
+        background-size:cover;
+        margin-right:10px;
+      }
+      .footer{
+        position:fixed;
+        bottom:0;
+        left:0;
+        right:0;
+        background-color:#B3D9D9;
+        padding:10px;
+        text-align:center;
+      }
+      .content{
+        padding-top:60px;
+        padding-bottom:60px;
+        text-align:center;
+      }
+      .button-container{
+        text-align:center;
+      }
+      .button{
+        background-color:#B3D9D9;
+        color:#000000;
+        font-size:24px;
+        width:600px;
+        height:100px;
+        line-height:100px;
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+        display:inline-block;
+        text-decoration:none;
+        margin:10px;''
+      }
+      .button span{
+        display:inline-block;
+        vertical-align: middle;
+        line-height: normal;
+      }
+    </style>
 </head>
 <body>
-歡迎來到本碳權交易所，請先<a href="/login">登入</a>。
+  <div class="header">
+    <div class="house-icon"></div>
+  </div>
+  <br><br><br><br>
+  <div class="content">
+    <h1>Welcome!</h1>
+    歡迎來到本碳權交易所，請先<a href="/login">登入</a>。
+  </div>
+  <div class="footer"></div>
 </body>
 </html>
