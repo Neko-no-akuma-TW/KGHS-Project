@@ -17,14 +17,18 @@ def login():
     if request.method == 'POST':
         if request.form['username'] == 'admin' and request.form['password'] == 'admin':
             session['logged_in'] = True
-            return redirect(url_for('index'))
+            return render_template("logged.html")
         else:
             error = 'Invalid Credentials. Please try again.'
             return render_template("logged.html", error=error)
-    return render_template('logged.html')
+    if session.get('logged_in') == True:
+        return render_template("logged.html")
+    return render_template('login.html')
 
 @app.route('/logout')
 def logout():
+    if not session.get('logged_in'):
+        return redirect(url_for('index'))
     session.pop('logged_in')
     return redirect(url_for('index'))
 
@@ -110,6 +114,8 @@ def buyer_choosed():
         data = json.load(f)
     data["buyer_buyed"] += int(request.form["num"])
     data["seller_can_deal"] -= int(request.form["num"])
+    if data["seller_can_deal"] < 0:
+        return "Seller has not enough items to sell for you, sorry."
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4)
     with open("buyer_deal_log.txt", "a", encoding="utf-8") as f:
@@ -119,4 +125,4 @@ def buyer_choosed():
     return render_template('buyer_choosed.html')
 
 if __name__ == '__main__':
-    app.run(host="192.168.1.78", debug=True)
+    app.run(host="0.0.0.0", debug=True)
